@@ -1,0 +1,15 @@
+{
+  "name": "das-node",
+  "version": "0.0.0",
+  "description": "Dancesport Competition Registration System",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Yubing Hou",
+  "license": "MIT",
+  "workspaces": [
+    "packages/app",
+    "packages/server"
+  ]
+}
