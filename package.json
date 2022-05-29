@@ -4,12 +4,18 @@
   "description": "Dancesport Competition Registration System",
   "main": "index.ts",
   "scripts": {
-    "test": "test"
+    "dev": "npm run clean && NODE_ENV=development concurrently -k \"npm:dev:*\"",
+    "dev:server": "wait-on",
+    "test": "test",
+    "prettier": "prettier --write ."
   },
   "author": "Yubing Hou",
   "license": "MIT",
   "workspaces": [
     "packages/app",
     "packages/server"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
 }
