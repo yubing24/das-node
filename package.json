@@ -6,13 +6,14 @@
   "scripts": {
     "dev": "concurrently -k \"npm:dev:*\"",
     "dev:server": "npm run --workspace=server start",
+    "dev:front-end": "npm run --workspace=frontend start",
     "test": "test",
     "prettier": "prettier --write ."
   },
   "author": "Yubing Hou",
   "license": "MIT",
   "workspaces": [
-    "packages/*"
+    "projects/*"
   ],
   "devDependencies": {
     "concurrently": "^7.2.1",
