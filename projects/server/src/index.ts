@@ -1,9 +1,9 @@
-import express, { Express, Request, Response } from "express";
+import express from "express";
 
-const app: Express = express();
-const port: number = 3000;
+const app = express();
+const port = 3000;
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (req, res) => {
   res.send("Express + TypeScript server");
 });
 app.listen(port, () => {

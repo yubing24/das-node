@@ -1,8 +1,13 @@
 # Node
 .npm/
-node_modules/
-*dist/
+**/node_modules/
+**/dist/
+**/build/
+**/coverage/
 
 # Editors
 .vscode/
 .idea/
+
+# MacOS
+.DS_Store
