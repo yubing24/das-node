@@ -8,7 +8,15 @@
       "esnext"
     ],
     "esModuleInterop": true,
+    "moduleResolution": "node",
     "strict": true,
-    "target": "ES2020"
-  }
+    "target": "ES2020",
+    "typeRoots": [
+      "../../node_modules/@types/jest"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
 }
