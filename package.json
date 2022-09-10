@@ -6,6 +6,7 @@
     "dev": "concurrently -k \"npm:dev:*\"",
     "dev:server": "npm run -w projects/server start",
     "dev:front-end": "npm run -w projects/frontend start",
+    "build": "npm run build -ws",
     "test": "npm run test -w projects/server && npm run test:ci -w projects/frontend",
     "prettier": "prettier --write ."
   },
