@@ -6,7 +6,7 @@
     "dev": "concurrently -k \"npm:dev:*\"",
     "dev:server": "npm run -w projects/server start",
     "dev:front-end": "npm run -w projects/frontend start",
-    "test": "jest",
+    "test:server": "npm run test -w projects/server",
     "prettier": "prettier --write ."
   },
   "author": "Yubing Hou <houyubing24@gmail.com>",

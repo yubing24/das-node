@@ -1,22 +1,21 @@
 {
   "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": ".",
     "module": "ES2020",
+    "noEmit": true,
     "rootDir": "./src",
     "outDir": "./dist",
     "sourceMap": true,
-    "lib": [
-      "esnext"
-    ],
+    "lib": ["esnext"],
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "paths": {
+      "*": ["../../node_modules/*", "*"]
+    },
     "strict": true,
-    "target": "ES2020",
-    "typeRoots": [
-      "../../node_modules/@types/jest"
-    ]
+    "target": "ES6",
+    "typeRoots": ["../../node_modules/@types/jest"]
   },
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
