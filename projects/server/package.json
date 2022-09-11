@@ -4,12 +4,11 @@
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "babel src/index.ts --out-dir lib --extensions '.ts'",
+    "build": "babel src/index.ts --out-dir dist --extensions '.ts'",
     "prestart": "npm run build",
     "start": "node .",
     "test": "jest"
   },
-  "type": "module",
   "keywords": [],
   "author": "Yubing Hou",
   "license": "ISC",
@@ -30,6 +29,7 @@
     "typescript": "^4.8.2"
   },
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "serve-static": "^1.15.0"
   }
 }
