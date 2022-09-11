@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import * as dotenv from "dotenv";
 import serveStatic from "serve-static";
 import path from "path";
@@ -16,6 +16,8 @@ dotenv.config();
 app.get("/health", (req, res) => {
   res.send("Good!");
 });
+
+// app.get("/something", (req, res) => {});
 
 app.use(serveStatic(path.join(__dirname, SPA_DIRECTORY)));
 

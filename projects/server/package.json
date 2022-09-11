@@ -2,15 +2,15 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index.js",
   "scripts": {
-    "build": "babel src/index.ts --out-dir dist --extensions '.ts'",
-    "prestart": "npm run build",
-    "start": "node .",
+    "build": "babel src -d lib --extensions \".ts,.js\"",
+    "clean": "rimraf lib dist",
+    "start": "npm run build && node lib/index.js",
+    "watch": "nodemon -e ts,json,js --exec ../../node_modules/.bin/babel-node --extensions \".js,.ts\" -- src/index.ts",
     "test": "jest"
   },
   "keywords": [],
-  "author": "Yubing Hou",
+  "author": "Yubing Hou <houyubing24@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.18.10",
@@ -31,5 +31,14 @@
   "dependencies": {
     "express": "^4.18.1",
     "serve-static": "^1.15.0"
+  },
+  "nodemonConfig": {
+    "delay": 2500,
+    "watch": [
+      "./src/**"
+    ],
+    "ignore": [
+      "*.spec.ts"
+    ]
   }
 }
