@@ -1,6 +1,6 @@
 export const server = () => {
-  const health = (req, res) => {
-    return "not bad";
+  const health = (req: any, res: any) => {
+    res.render("Not bad!");
   };
 
   return {

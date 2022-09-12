@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "npm run clean -ws",
     "dev": "npm run clean && concurrently -k \"npm:dev:*\"",
-    "dev:server": "npm run -w projects/server start",
+    "dev:server": "npm run -w projects/server dev",
     "dev:front-end": "npm run -w projects/frontend watch",
     "build": "npm run build -ws",
     "test": "npm run test -w projects/server && npm run test:ci -w projects/frontend",

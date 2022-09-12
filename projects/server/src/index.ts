@@ -14,10 +14,10 @@ const SPA_DIRECTORY = "../../frontend/dist/das-frontend";
 dotenv.config();
 
 app.get("/health", (req, res) => {
-  res.send("Good!");
+  res.send("Not too bad");
 });
 
-// app.get("/something", (req, res) => {});
+app.get("/something", (req, res) => {});
 
 app.use(serveStatic(path.join(__dirname, SPA_DIRECTORY)));
 
