@@ -1,9 +1,6 @@
-import express, { Request, Response } from "express";
 import * as dotenv from "dotenv";
-import serveStatic from "serve-static";
-import path from "path";
-
-const app = express();
+import { ApolloServer } from "@apollo/server";
+import { startStandaloneServer } from "@apollo/server/standalone";
 
 // TODO: make this an env variable
 const port = 3000;
@@ -13,18 +10,43 @@ const SPA_DIRECTORY = "../../frontend/dist/das-frontend";
 
 dotenv.config();
 
-app.get("/health", (req, res) => {
-  res.send("Not too bad");
+const typeDefs = `#graphql
+  type Book {
+    title: String
+    author: String
+  }
+  type Query {
+    books: [Book]
+  }
+`;
+
+const books = [
+  {
+    title: "Harry Potter",
+    author: "J.K.Rowling"
+  },
+  {
+    title: "The Lord of the Ring",
+    author: "J.R.R. Tolkin"
+  }
+];
+
+const resolvers = {
+  Query: {
+    books: () => {
+      return books;
+    },
+  },
+};
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+const { url } = await startStandaloneServer(server, {
+  listen: {
+    port: port
+  }
 });
 
-app.get("/something", (req, res) => {});
-
-app.use(serveStatic(path.join(__dirname, SPA_DIRECTORY)));
-
-app.listen(port, () => {
-  const spaPath = path.join(__dirname, SPA_DIRECTORY, "index.html");
-  console.log(`Assumed SPA PATH: ${spaPath}`);
-  console.log(`[server]: Server is running at https://localhost:${port}`);
-});
-
-console.log("🚀 Application starting");
+console.log(`🚀 Application starting at ${url}`);

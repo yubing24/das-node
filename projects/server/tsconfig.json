@@ -2,18 +2,19 @@
   "compilerOptions": {
     "baseUrl": ".",
     "esModuleInterop": true,
-    "lib": ["esnext"],
-    "module": "CommonJS",
+    "lib": ["ES2022"],
+    "module": "ES2022",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "dist",
     "paths": {
       "*": ["../../node_modules/*", "./node_modules/*", "*"]
     },
-    "rootDir": "./src",
+    "rootDirs": ["src"],
     "sourceMap": true,
     "strict": true,
-    "target": "ES6",
+    "target": "ES2022",
+    "types": ["node"],
     "typeRoots": ["../../node_modules/@types/jest"]
   },
   "include": ["src/**/*"],
