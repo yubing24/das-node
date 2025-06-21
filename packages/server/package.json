@@ -1,0 +1,39 @@
+{
+  "name": "@das-node/server",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "clean": "rimraf dist",
+    "lint": "eslint -c .eslintrc.json  --fix",
+    "build": "tsc",
+    "start": "node .",
+    "dev": "npm run build && node ./dist/index.js",
+    "test": "vitest --run"
+  },
+  "keywords": [],
+  "author": "Yubing Hou <houyubing24@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/koa": "^2.15.0",
+    "@types/node": "^24.0.3",
+    "dotenv": "^16.0.2",
+    "prisma": "^6.10.1",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.0.3",
+    "graphql": "^16.6.0",
+    "koa": "^3.0.0",
+    "serve-static": "^1.15.0"
+  },
+  "nodemonConfig": {
+    "delay": 2500,
+    "watch": [
+      "./src/**"
+    ],
+    "ignore": [
+      "*.spec.ts"
+    ]
+  }
+}
