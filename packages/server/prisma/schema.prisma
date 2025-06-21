@@ -9,3 +9,32 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        String @id
+  email     String @unique
+  firstName String
+  lastName  String
+  password  String
+}
+
+model Country {
+  id     String  @id
+  name   String  @unique
+  States State[]
+}
+
+model State {
+  id        String  @id
+  name      String  @unique
+  countryId String
+  country   Country @relation(fields: [countryId], references: [id])
+  Cities    City[]
+}
+
+model City {
+  id      String @id
+  name    String @unique
+  stateId String
+  state   State  @relation(fields: [stateId], references: [id])
+}

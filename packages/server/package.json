@@ -23,8 +23,11 @@
   },
   "dependencies": {
     "@apollo/server": "^4.0.3",
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@prisma/client": "^6.10.1",
     "graphql": "^16.6.0",
     "koa": "^3.0.0",
+    "nanoid": "^5.1.5",
     "serve-static": "^1.15.0"
   },
   "nodemonConfig": {
@@ -35,5 +38,8 @@
     "ignore": [
       "*.spec.ts"
     ]
+  },
+  "prisma": {
+    "seed": "node prisma/seed.mjs"
   }
 }
