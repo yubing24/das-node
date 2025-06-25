@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
     "module": "node18",
     "moduleResolution": "node16",
     "noImplicitAny": false,

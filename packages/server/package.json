@@ -6,8 +6,8 @@
     "clean": "rimraf dist",
     "lint": "eslint -c .eslintrc.json  --fix",
     "build": "tsc",
-    "start": "node .",
-    "dev": "npm run build && node ./dist/index.js",
+    "start": "node --enable-source-maps ./dist/index.js",
+    "dev": "run-s clean build start",
     "test": "vitest --run"
   },
   "keywords": [],
@@ -40,6 +40,6 @@
     ]
   },
   "prisma": {
-    "seed": "node prisma/seed.mjs"
+    "seed": "node scripts/seed.mjs"
   }
 }

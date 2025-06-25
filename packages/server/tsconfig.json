@@ -2,14 +2,11 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "esModuleInterop": true,
-    "lib": ["ES2022"],
     "outDir": "dist",
     "paths": {
       "*": ["../../node_modules/*", "./node_modules/*", "*"]
     },
     "rootDirs": ["src"],
-
     "types": ["node"]
   },
   "include": ["src/**/*"],

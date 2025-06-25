@@ -1,8 +1,8 @@
-import Koa from "koa";
+import Koa, { Context } from "koa";
 
 const app = new Koa();
 
-app.use(async (ctx) => {
+app.use(async (ctx: Context) => {
   ctx.body = "Hello, world!";
 });
 
