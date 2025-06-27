@@ -6,6 +6,7 @@
     "clean": "rimraf dist",
     "lint": "eslint -c .eslintrc.json  --fix",
     "build": "node ./scripts/build.mjs",
+    "generate": "prisma generate",
     "start": "node --enable-source-maps ./dist/index.js",
     "dev": "nodemon -e js,ts --exec \"run-s build start\"",
     "test": "vitest --run"
@@ -15,10 +16,12 @@
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^5.0.3",
+    "@types/helmet": "^0.0.48",
     "@types/koa": "^2.15.0",
     "@types/koa__router": "^12.0.4",
     "@types/node": "^24.0.3",
-    "dotenv": "^16.0.2",
+    "@types/oidc-provider": "^9.1.1",
+    "dotenv": "^16.5.0",
     "esbuild": "^0.25.5",
     "nodemon": "^3.1.10",
     "prisma": "^6.10.1",
@@ -30,8 +33,10 @@
     "@paralleldrive/cuid2": "^2.2.2",
     "@prisma/client": "^6.10.1",
     "graphql": "^16.6.0",
+    "helmet": "^8.1.0",
     "koa": "^3.0.0",
     "nanoid": "^5.1.5",
+    "oidc-provider": "^9.2.0",
     "serve-static": "^1.15.0"
   },
   "nodemonConfig": {

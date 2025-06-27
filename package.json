@@ -4,7 +4,7 @@
   "description": "Dancesport Competition Registration System",
   "scripts": {
     "clean": "npm run clean -ws",
-    "dev": "npm run clean && concurrently -k \"npm:dev:*\"",
+    "dev": "npm run clean && NODE_ENV=development concurrently -k \"npm:dev:*\"",
     "dev:app": "npm run start -w @das-node/app",
     "dev:server": "npm run dev -w @das-node/server",
     "build": "npm run build -ws",
