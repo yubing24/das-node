@@ -1,37 +1,9 @@
-import Koa, { Context } from "koa";
-import Router from "@koa/router";
-import helmet from "helmet";
-import { promisify } from "node:util";
-import { provider } from "./oidc-server/index.js";
+import { AppServices, createAppServices } from "./app-services.js";
+import { AppConfig } from "./model/app-config.js";
+import { createAppConfig } from "./services/config.js";
 
-const app = new Koa();
-const router = new Router();
+const createAppServer = async (config: AppConfig, services: AppServices) => {};
 
-const directives = helmet.contentSecurityPolicy.getDefaultDirectives();
-const helmetPromise = promisify(
-  helmet({
-    contentSecurityPolicy: {
-      useDefaults: false,
-      directives,
-    },
-  })
-);
-
-router.get("/hello", (ctx: Context, next: any) => {
-  ctx.body = "Hello, world from Koa Routers";
-});
-
-app.use(async (ctx: Context, next: any) => {
-  const origin = ctx.req.secure;
-  ctx.req.secure = ctx.request.secure;
-  await helmetPromise(ctx.req, ctx.res);
-  ctx.req.secure = origin;
-  return next();
-});
-
-app.use(router.routes()).use(router.allowedMethods());
-app.use(routes(provider).routes());
-
-app.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
-});
+const appConfig = createAppConfig();
+const appServices = await createAppServices(appConfig);
+await createAppServer(appConfig, appServices);

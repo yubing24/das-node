@@ -13,7 +13,7 @@ const generateUsers = () => {
     email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`,
     firstName,
     lastName,
-    password: faker.internet.password(),
+    password: `Password123!`,
   };
   return user;
 };
