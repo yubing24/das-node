@@ -18,12 +18,26 @@ const generateUsers = () => {
   return user;
 };
 
+const generateCountry = () => {
+  // @type {Country}
+  let country = {
+    id: createId(),
+    name: faker.location.country(),
+  };
+  return country;
+};
+
 async function main() {
   // generate users
   for (let i = 0; i < 10; i++) {
     const user = generateUsers();
     await prisma.user.create({
       data: user,
+    });
+
+    const country = generateCountry();
+    await prisma.country.create({
+      data: country,
     });
   }
 }

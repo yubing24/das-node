@@ -23,7 +23,7 @@ export class RedisCache implements AppCache {
     // this function is necessary because the redis client cannot be created in the constructor
     // due to the async nature.
     this.client = await createClient({
-      url: `redis://das:das@${this.host}:${this.port}`,
+      url: `redis://@${this.host}:${this.port}`,
     });
     await this.client.connect();
   }

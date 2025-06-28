@@ -8,7 +8,7 @@
     "build": "node ./scripts/build.mjs",
     "generate": "prisma generate",
     "start": "node --enable-source-maps ./dist/index.js",
-    "dev": "nodemon -e js,ts,mjs --exec \"run-s build start\"",
+    "dev": "nodemon -e js,ts,mjs --exec \"run-s build test start\"",
     "test": "vitest --run"
   },
   "keywords": [],
@@ -36,8 +36,10 @@
     "graphql": "^16.6.0",
     "helmet": "^8.1.0",
     "koa": "^3.0.0",
+    "koa-body": "^6.0.1",
     "nanoid": "^5.1.5",
     "oidc-provider": "^9.2.0",
+    "openid-client": "^6.6.1",
     "redis": "^5.5.6",
     "serve-static": "^1.15.0"
   },

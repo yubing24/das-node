@@ -4,7 +4,7 @@ let result = await esbuild.build({
   bundle: true,
   entryPoints: ["./src/index.ts"],
   // some dependencies are not ESM compatible and it's better to keep them as runtime dependencies
-  external: ["redis", "@prisma/client"],
+  external: ["@koa/router", "@prisma/client", "koa", "redis"],
   format: "esm",
   outdir: "./dist",
   packages: "external",
