@@ -12,21 +12,24 @@ export interface AuthServices {
 export interface AppServices {
   config: AppConfig;
   cache: AppCache;
-  auth: AuthServices;
+  auth?: AuthServices;
   redisClient: RedisClientType;
   prismaClient: PrismaClient;
 }
 export const createAppServices = async (
   config: AppConfig
 ): Promise<AppServices> => {
-  // TODO: finish implementation
-
   // create cache client
   const cache = new RedisCache(config.cacheConfig);
+  const redisClient = await cache.getClient();
 
+  // create database client
   const prismaClient = new PrismaClient();
+
   return {
     config,
+    cache,
+    redisClient,
     prismaClient,
   } as AppServices;
 };

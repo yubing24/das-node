@@ -1,4 +1,4 @@
-import { createClient } from "redis";
+import { createClient, type RedisClientType } from "redis";
 import { AppConfigCache } from "src/model/app-config.js";
 
 export interface AppCache {
@@ -10,7 +10,7 @@ export interface AppCache {
 }
 
 export class RedisCache implements AppCache {
-  private client: any;
+  private client: RedisClientType | null = null;
   private host: string;
   private port: number;
 
@@ -26,6 +26,13 @@ export class RedisCache implements AppCache {
       url: `redis://das:das@${this.host}:${this.port}`,
     });
     await this.client.connect();
+  }
+
+  async getClient(): Promise<RedisClientType | null> {
+    if (this.client === null) {
+      await this.connect();
+    }
+    return this.client;
   }
 
   async get<T>(key: string): Promise<T | undefined> {
@@ -48,6 +55,6 @@ export class RedisCache implements AppCache {
 
   async terminate(): Promise<void> {
     // Implementation here
-    this.client.destroy();
+    this.client?.destroy();
   }
 }
